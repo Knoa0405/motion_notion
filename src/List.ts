@@ -1,7 +1,7 @@
-function List() {
-    return (
-        
-    )
+const buttons: HTMLElement = document.querySelector('.buttons')!;
+
+function handleClick(e : Event) : void {
+    console.log(e.target);
 }
 
-export default List;
+buttons.addEventListener('click', (e) => handleClick(e));
