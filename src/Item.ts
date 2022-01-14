@@ -5,7 +5,7 @@
 // 1-4. 각 리스트에는 텍스트 등록 인풋이 있다. ( 리스트 title 넣는 부분 )
 
 interface Item {
-    parentElement : HTMLUListElement;
+    parentElement : HTMLElement;
 }
 
 function ImplItem({ parentElement } : Item): void {
