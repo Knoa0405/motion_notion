@@ -1,0 +1,6 @@
+{
+    "IMAGE": 0,
+    "VIDEO" : 1,
+    "TEXT" : 2,
+    "TASK": 3
+}
