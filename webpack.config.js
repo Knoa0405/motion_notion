@@ -19,18 +19,18 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx','.ts', '.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/',
     clean: true,
   },
   devServer: {
     static: { directory: path.join(__dirname, 'dist') },
     open: true,
+    https: true,
     port: 'auto',
   },
-  plugins: [new HtmlWebpackPlugin({ template: 'src/index.html' })],
+  plugins: [new HtmlWebpackPlugin({ template: 'dist/index.html' })],
 };

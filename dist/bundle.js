@@ -110,13 +110,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/Item.ts":
+/*!*********************!*\
+  !*** ./src/Item.ts ***!
+  \*********************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// 1. 각 종류별 리스트는 모두 CRUD 가 가능해야 한다.  \r\n// 1-1. 각 리스트에는 해당 리스트 등록 버튼과 기능이 필요하다.  \r\n// 1-2. 각 리스트에는 수정 버튼과 기능이 필요하다.  \r\n// 1-3. 각 리스트에는 삭제 버튼과 기능이 필요하다.  \r\n// 1-4. 각 리스트에는 텍스트 등록 인풋이 있다. ( 리스트 title 넣는 부분 )\r\nfunction ImplItem(_a) {\r\n    var parentElement = _a.parentElement;\r\n    parentElement.innerHTML = \"<li>\\uB9AC\\uC2A4\\uD2B8 \\uCD94\\uAC00</li>\";\r\n}\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (ImplItem);\r\n\n\n//# sourceURL=webpack://motion_notion/./src/Item.ts?");
+
+/***/ }),
+
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tailwind_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tailwind.css */ \"./src/tailwind.css\");\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module 'Item'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\r\n\r\nvar buttons = document.querySelector('.buttons');\r\nfunction handleClick(e) {\r\n    Object(function webpackMissingModule() { var e = new Error(\"Cannot find module 'Item'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({ parentElement: buttons });\r\n}\r\nbuttons.addEventListener('click', function (e) { return handleClick(e); });\r\n\n\n//# sourceURL=webpack://motion_notion/./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tailwind_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tailwind.css */ \"./src/tailwind.css\");\n/* harmony import */ var _Item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Item */ \"./src/Item.ts\");\n\r\n\r\nvar buttons = document.querySelector('.buttons');\r\nfunction handleClick(e) {\r\n    (0,_Item__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({ parentElement: buttons });\r\n}\r\nbuttons.addEventListener('click', function (e) { return handleClick(e); });\r\n\n\n//# sourceURL=webpack://motion_notion/./src/index.ts?");
 
 /***/ })
 
