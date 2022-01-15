@@ -1,5 +1,6 @@
 import './tailwind.css';
-import ImplItem  from "Item";
+
+import ImplItem  from "./Item";
 
 const buttons: HTMLElement = document.querySelector('.buttons')!;
 
