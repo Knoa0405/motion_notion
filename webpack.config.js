@@ -3,7 +3,10 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts',
+  entry: {
+    'bundle': './src/index.ts',
+    'utils/types': './src/utils/types.ts',
+  },
   module: {
     rules: [
       {
@@ -16,14 +19,18 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
-    ],
+    ]
   },
   resolve: {
-    extensions: ['.tsx','.ts', '.js'],
+    extensions: ['.tsx','.ts', '.js','json'],
+    alias : {
+      utils: path.resolve(__dirname, 'src/utils'),
+    }
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    publicPath : '/',
+    filename: '[name].js',
     clean: true,
   },
   devServer: {
@@ -32,5 +39,5 @@ module.exports = {
     https: true,
     port: 'auto',
   },
-  plugins: [new HtmlWebpackPlugin({ template: 'dist/index.html' })],
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
 };

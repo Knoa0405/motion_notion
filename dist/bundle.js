@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \*********************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n// 1. 각 종류별 리스트는 모두 CRUD 가 가능해야 한다.  \r\n// 1-1. 각 리스트에는 해당 리스트 등록 버튼과 기능이 필요하다.  \r\n// 1-2. 각 리스트에는 수정 버튼과 기능이 필요하다.  \r\n// 1-3. 각 리스트에는 삭제 버튼과 기능이 필요하다.  \r\n// 1-4. 각 리스트에는 텍스트 등록 인풋이 있다. ( 리스트 title 넣는 부분 )\r\nfunction ImplItem(_a) {\r\n    var parentElement = _a.parentElement;\r\n    parentElement.innerHTML = \"<li>\\uB9AC\\uC2A4\\uD2B8 \\uCD94\\uAC00</li>\";\r\n}\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (ImplItem);\r\n\n\n//# sourceURL=webpack://motion_notion/./src/Item.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var utils_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! utils/types */ \"./src/utils/types.ts\");\n// 1. 각 종류별 리스트는 모두 CRUD 가 가능해야 한다.  \r\n// 1-1. 각 리스트에는 해당 리스트 등록 버튼과 기능이 필요하다.  \r\n// 1-2. 각 리스트에는 수정 버튼과 기능이 필요하다.\r\n// 1-3. 각 리스트에는 삭제 버튼과 기능이 필요하다.  \r\n\r\nvar ImplItem = /** @class */ (function () {\r\n    function ImplItem(parentElement) {\r\n        this.createItem = function (categoryName) {\r\n            var type = (0,utils_types__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(categoryName);\r\n            console.log(type);\r\n        };\r\n        this.updateItem = function () {\r\n        };\r\n        this.deleteItem = function () {\r\n        };\r\n        this.parentElement = parentElement;\r\n    }\r\n    return ImplItem;\r\n}());\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (ImplItem);\r\n\n\n//# sourceURL=webpack://motion_notion/./src/Item.ts?");
 
 /***/ }),
 
@@ -126,7 +126,27 @@ eval("__webpack_require__.r(__webpack_exports__);\n// 1. 각 종류별 리스트
   \**********************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tailwind_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tailwind.css */ \"./src/tailwind.css\");\n/* harmony import */ var _Item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Item */ \"./src/Item.ts\");\n\r\n\r\nvar buttons = document.querySelector('.buttons');\r\nfunction handleClick(e) {\r\n    (0,_Item__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({ parentElement: buttons });\r\n}\r\nbuttons.addEventListener('click', function (e) { return handleClick(e); });\r\n\n\n//# sourceURL=webpack://motion_notion/./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tailwind_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tailwind.css */ \"./src/tailwind.css\");\n/* harmony import */ var _Item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Item */ \"./src/Item.ts\");\n\r\n\r\nvar buttons = document.querySelector('.buttons');\r\nfunction handleClick(e) {\r\n    var item = new _Item__WEBPACK_IMPORTED_MODULE_1__[\"default\"](buttons);\r\n    console.log(e === null || e === void 0 ? void 0 : e.target);\r\n    console.log(item.createItem(\"TASK\"));\r\n}\r\nbuttons.addEventListener('click', function (e) { return handleClick(e); });\r\n\n\n//# sourceURL=webpack://motion_notion/./src/index.ts?");
+
+/***/ }),
+
+/***/ "./src/utils/types.ts":
+/*!****************************!*\
+  !*** ./src/utils/types.ts ***!
+  \****************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _types_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.json */ \"./src/utils/types.json\");\n\r\nfunction classificationCategoryTypes(categoryNumber) {\r\n    var types = _types_json__WEBPACK_IMPORTED_MODULE_0__;\r\n    return types[categoryNumber];\r\n}\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (classificationCategoryTypes);\r\n\n\n//# sourceURL=webpack://motion_notion/./src/utils/types.ts?");
+
+/***/ }),
+
+/***/ "./src/utils/types.json":
+/*!******************************!*\
+  !*** ./src/utils/types.json ***!
+  \******************************/
+/***/ (function(module) {
+
+eval("module.exports = JSON.parse('{\"IMAGE\":0,\"VIDEO\":1,\"TEXT\":2,\"TASK\":3}');\n\n//# sourceURL=webpack://motion_notion/./src/utils/types.json?");
 
 /***/ })
 
