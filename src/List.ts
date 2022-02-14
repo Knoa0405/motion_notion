@@ -12,27 +12,19 @@ export interface List {
     getList() : string;
 }
 
+interface TypeList<T> {
+    getList(type: T) : HTMLElement;
+}
+
 class ImplList implements List {
-    type: number;
+    type: Type;
     
-    constructor(type: number) {
+    constructor(type: Type, readonly list: TypeList<Type>) {
         this.type = type;
     }
 
     getList() {
-        if(this.type === 0) {
-            return `<img>HELLO</img>`;
-        }
-        if(this.type === 1) {
-            return `<video>HELLO</video>`;
-        }
-        if(this.type === 2) {
-            return `<span>HELLO</span>`;
-        }
-        if(this.type === 3) {
-            return `<div>HELLO</div>`;
-        }
-        return '';
+        return this.list.getList(this.type);
     }
 }
 
