@@ -1,7 +1,7 @@
 import './tailwind.css';
 
-import ImplItem  from "./Item";
-import ImplList from './List';
+import ImplList  from "./List";
+import ImplItem, { Type } from './Item';
 import classificationCategoryTypes from 'utils/types';
 
 const buttons: HTMLElement = document.querySelector('.buttons')!;
@@ -16,7 +16,7 @@ function handleClick(e: MouseEvent) : void {
     const event = e as DOMEvent<HTMLButtonElement>;
     const item = new ImplItem(uList);
     
-    const type: number = classificationCategoryTypes(event.target.innerText);
+    const type: Type = classificationCategoryTypes(event.target.innerText);
     item.createItem(new ImplList(type));
 }
 

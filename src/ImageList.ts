@@ -1,6 +1,3 @@
-import ImplList from "List";
-
-
 // 각 리스트별로 다른 기능들이 있다.
 // 공통된 기능들은 하나의 클래스로 두고
 // 각각의 기능들을 클래스 선언 호출시에 DI 구조로 넣어주면 되지 않을까?
@@ -13,7 +10,7 @@ interface ImageList {
 }
 class ImplImageList implements ImageList {
     url : string = '';
-    
+
     setUrl(url : string) {
         this.url = url;
     }

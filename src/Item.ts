@@ -1,43 +1,40 @@
-// 1. 각 종류별 리스트는 모두 CRUD 가 가능해야 한다.
-// 1-1. 각 리스트에는 해당 리스트 등록 버튼과 기능이 필요하다.  
-// 1-2. 각 리스트에는 수정 버튼과 기능이 필요하다.
-// 1-3. 각 리스트에는 삭제 버튼과 기능이 필요하다.  
+export type Type = 0 | 1 | 2 | 3
 
-import ImplList from "./List";
-import classificationCategoryTypes from "utils/types";
+// 아이템은 아이템 이외의 기능이 주입되어 사용된다.
 
-// 1-4. 각 리스트에는 텍스트 등록 인풋이 있다. ( 리스트 title 넣는 부분 )
-interface Item {
-    parentElement : HTMLElement;
-    createItem(implList: ImplList): void;
-    updateItem() : void;
-    deleteItem() : void;
+// 아이템의 공통 기능 - 텍스트 입력창
+
+// 이미지 아이템 - 이미지 파일 업로드 하면, 이미지가 올라감.
+
+// 비디오 로드시 해당 비디오의 URL 을 첨부하면 해당 영상이 자동으로 실행된다. ( 등록이 완료 되면 )
+// 기능 구현 사항이 공통 기능에 포함됨
+// 등록시 타이틀과 할일 목록을 입력하면 등록이 된다.
+export interface Item {
+    type: number;
+    getItem(): string;
 }
-
 class ImplItem implements Item {
-    parentElement: HTMLElement;
-
-    constructor(parentElement: HTMLElement) {
-        this.parentElement = parentElement
-    }
-    // 아이템 생성시
-    // 1. 이미지 - 이미지 파일 업로드, url 삽입
-    // 2. 비디오 - 비디오 url 삽입
-    // 3. 테스크 - 할일 목록
-    createItem = (implList: ImplList) : void => {
-       this.parentElement.innerHTML = implList.getList();
-        // type check 후 type 별로 다른 특성을 가진 리스트를 생성해준다.
+    type: Type;
+    
+    constructor(type: Type) {
+        this.type = type;
     }
 
-    updateItem = () => {
-
-    }
-
-    deleteItem = () => {
-
+    getItem() {
+        if(this.type === 0) {
+            return '<h1>이미지</h1>';
+        }
+        if(this.type === 1) {
+            return '<h1>비디오</h1>';
+        }
+        if(this.type === 2) {
+            return '<h1>노트</h1>';
+        }
+        if(this.type === 3) {
+            return '<h1>테스크</h1>';
+        }
+        return '';
     }
 }
-
-
 
 export default ImplItem;
