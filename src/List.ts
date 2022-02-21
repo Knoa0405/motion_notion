@@ -21,16 +21,16 @@ class ImplList implements List {
 
     getList() {
         if(this.type === 0) {
-            return `<img>이미지</img>`;
+            return `<img>Image</img>`;
         }
         if(this.type === 1) {
-            return `<video>비디오</video>`;
+            return `<video>Video</video>`;
         }
         if(this.type === 2) {
-            return `<span>테스크</span>`;
+            return `<span>Task</span>`;
         }
         if(this.type === 3) {
-            return `<div>할일</div>`;
+            return `<div>List</div>`;
         }
         return '';
     }
