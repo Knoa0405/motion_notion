@@ -14,10 +14,10 @@ interface DOMEvent<T extends HTMLElement> extends MouseEvent {
 
 function handleClick(e: MouseEvent) : void {
     const event = e as DOMEvent<HTMLButtonElement>;
-    const item = new ImplItem(uList);
-    
     const type: Type = classificationCategoryTypes(event.target.innerText);
-    item.createItem(new ImplList(type));
+    const list = new ImplList(uList);
+    
+    list.createList(new ImplItem(type));
 }
 
 buttons.addEventListener('click', (e) => handleClick(e));
